@@ -23,14 +23,22 @@ Malla::load( "urls", new \Malla\Core\Support\Urls($this->app) );
 $this->app["malla"] = Malla::load();
 
 /*
-* MALLA
+* HELPERS
 * Helper Malla */
 if( !function_exists("malla") ) {
+
 	function malla( $key=null, $args=[], $merge=[] ) {
 		return app("malla")->load($key, $args, $merge);
 	}
 }
 
+
+if( !function_exists("__url") ) {
+
+	function __url($path = null, $parameters = [], $secure = null) {
+		return malla("urls")->url($path, $parameters, $secure);
+	}
+}
 
 // if( !Malla::isAppStart("core", "malla") ) {
 

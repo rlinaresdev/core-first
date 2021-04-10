@@ -32,12 +32,10 @@ class Loader {
 	/*
 	* ALIASES
 	* Load Alias */
-	public function loadAlias($alias=NULL)
-	{
-		if(!empty($alias) && is_array($alias))
-		{
-			foreach ($alias as $alia => $class)
-			{
+	public function loadAlias($alias=NULL) {
+
+		if(!empty($alias) && is_array($alias)) {
+			foreach ($alias as $alia => $class) {
 				AliasLoader::getInstance()->alias($alia, $class);
 			}
 		}

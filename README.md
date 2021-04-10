@@ -1,5 +1,27 @@
-#CORE
+## CORE
 Core V-1.0 | Sistema Central para Malla
+
+### URLS
+
+Urls etiquetada
+
+```php
+	
+	Malla::load("urls")->addTag("urls", [
+		"__path"	=> request()->path(),
+		"__theme"	=> "admin/theme/lists"
+	]);
+
+```
+
+Utilizando la ruta etiquetada
+
+```html
+
+	<a href="{{__url("__path")}}"> Ruta Actual </a>
+
+	<a href="{{__url("__theme")}}"> Plantillas </a>
+```
 
 ### HELPER
 
@@ -15,9 +37,10 @@ Desde el helper malla
 
 ```php
 
-malla();
+$malla = malla();
 
 ```
+
 
 Llamando una libraría en especifico.
 
