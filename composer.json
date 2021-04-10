@@ -18,7 +18,7 @@
             "src/Storage/Database"
         ],   
         "psr-4": {            
-            "Malla\\System\\Core": "src/App/System/Core/",
+            "Malla\\Core": "Core/",
         }
     },
     "config": {
