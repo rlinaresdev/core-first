@@ -1,0 +1,28 @@
+{    
+    "name": "rlinaresdev/core",
+    "description": "Core V-1.0 | Systema Central para Malla",
+    "keywords": ["core, laravel, library"],
+    "license": "MIT",
+    "type": "package",
+    "authors": [
+        {
+            "name": "Ing. Ramón A Linares Febles",
+            "email": "rlinares4381@gmail.com"
+        }        
+    ],
+    "require": {
+        "php": ">=7.2"        
+    },
+    "autoload": {
+        "classmap": [
+            "src/Storage/Database"
+        ],   
+        "psr-4": {            
+            "Malla\\System\\Core": "src/App/System/Core/",
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev"
+}
