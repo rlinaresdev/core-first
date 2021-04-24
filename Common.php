@@ -40,6 +40,10 @@ if( !function_exists("__url") ) {
 	}
 }
 
+
+
+require_once(__MALLA__."App/System/Common.php");
+
 // if( !Malla::isAppStart("core", "malla") ) {
 
 // 	Malla::load("loader")->run(\Malla\Package\Install\Kernel::class);
