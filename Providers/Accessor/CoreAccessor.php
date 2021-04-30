@@ -1,4 +1,4 @@
-<?php 
+<?php
 namespace Malla\Core\Providers\Accessor;
 
 /*
@@ -13,7 +13,7 @@ use Illuminate\Support\ServiceProvider;
 class CoreAccessor extends ServiceProvider {
 
 	public function boot() {
-
+	
 	}
 
 	public function register() {

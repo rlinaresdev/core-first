@@ -7,6 +7,7 @@
  *---------------------------------------------------------
 */
 
+
 use Illuminate\Foundation\AliasLoader;
 
 class Loader {
@@ -23,7 +24,12 @@ class Loader {
 			return FALSE;
 		}
 
-		if( \Schema::hasTable("malla") ) {
+		if( \Schema::hasTable("apps") ) {
+
+			if(self::$app["malla"]->load("coredb")->has("core", "core")) {
+				return (self::$app["malla"]->load("coredb")->get("core", "core")->activated == 1);
+			}
+
 		}
 
 		return FALSE;
@@ -51,7 +57,7 @@ class Loader {
 		if(!is_array($providers)) $providers = [$providers];
 
 		foreach ($providers as $provider)
-		{			
+		{
 			self::$app->register($provider);
 		}
 	}
@@ -86,9 +92,9 @@ class Loader {
 
 		if( in_array($type, ["core", "library", "package", "plugin"]) ) {
 
-			if( ($stors = self::$app["malla.dbstor"]->type($type))->count() > 0 ) {
+			if( !empty( $stors = self::$app["malla"]->load("coredb")->getType($type) ) ) {
 
-				foreach ($stors->get() as $app ) {
+				foreach ($stors as $app ) {
 
 					if($app->activated == 1) {
 
@@ -99,7 +105,7 @@ class Loader {
 						/*
 						* LOAD APP KERNEL */
 						$this->run($app->kernel);
-					}					
+					}
 				}
 			}
 		}

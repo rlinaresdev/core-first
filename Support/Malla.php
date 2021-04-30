@@ -1,4 +1,4 @@
-<?php 
+<?php
 namespace Malla\Core\Support;
 
 /*
@@ -10,36 +10,36 @@ namespace Malla\Core\Support;
 
 use Malla\Core\Support\Bootstrap;
 
-class Malla {	
+class Malla {
 
 	protected static $app;
 
 	public function __construct( Bootstrap $app ) {
-		self::$app = $app;	
+		self::$app = $app;
 	}
 
 	public function load( $key=NULL, $args=[], $params=[] ) {
 		return self::$app->load( $this, $key, $args, $params );
 	}
 
-	/* 
+	/*
 	* URLS */
 	public function publicUrl($path=null, $parameters=[], $secure=null ) {
 		return $this->load("url")->url($path, $parameters, $secure);
-	} 
+	}
 
 	public function addTagUrl($taggs=[]) {
-		return $this->load("url")->addTag("urls", $taggs);
+		return $this->load("urls")->addTag("urls", $taggs);
 	}
 
 	/*
 	* PATH */
 	public function path($path=null) {
-		return $this->load("url")->path($path);
+		return $this->load("urls")->path($path);
 	}
 
 	public function addTagPath($taggs=[]) {
-		return $this->load("url")->addTag("paths", $taggs);
+		return $this->load("urls")->addTag("paths", $taggs);
 	}
 
 	/*
@@ -53,5 +53,5 @@ class Malla {
 	public function isAppStart( $type=null, $slug=null ) {
 		return $this->load("loader")->isAppStart($type, $slug);
 	}
-	
+
 }

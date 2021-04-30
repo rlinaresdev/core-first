@@ -27,8 +27,8 @@ class Urls {
         return config("base.dir", $this->base_dir);
     }
 
-	public function addTag($tagg=NULL, $segments=[]) {
-
+	public function addTag( $tagg=NULL, $segments=[] ) {
+		
 		$this->taggs[$tagg] = array_merge(
 			$this->taggs[$tagg], $segments
 		);
@@ -49,7 +49,7 @@ class Urls {
         	foreach ($urls as $key => $value) {
 				$path = str_replace($key, $value, $path);
 			}
-        }        
+        }
 
         return app(UrlGenerator::class)->to($path, $parameters, $secure);
     }
@@ -62,7 +62,7 @@ class Urls {
         return $this->publicUrl("themes/".trim($path, "/"), $parameters, $secure);
     }
 
-    public function path($path=null) {        
+    public function path($path=null) {
 
     	if(empty($path)) {
     		return app()->basePath($path);
@@ -72,8 +72,8 @@ class Urls {
         	foreach( $paths as $key => $value ) {
 				$path = str_replace($key, $value, $path);
 			}
-        } 
-       
+        }
+
         return $path;
     }
 
